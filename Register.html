@@ -35,10 +35,6 @@
         button {
             width: 100%;
         }
-
-        #loginButton {
-            display: none; /* Initially hidden */
-        }
     </style>
 </head>
 
@@ -52,70 +48,59 @@
             </div>
             <div class="mb-3">
                 <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" name="fullName" id="fullName" class="large-input">
+                <input type="text" name="fullName" id="fullName" class="large-input" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="large-input">
+                <input type="email" name="email" id="email" class="large-input" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="large-input">
+                <input type="password" name="password" id="password" class="large-input" required>
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" class="large-input">
+                <input type="password" name="confirmPassword" id="confirmPassword" class="large-input" required>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
-        <button id="loginButton" class="btn btn-success mt-3">Go to Login Page</button>
     </div>
 
     <script>
         document.getElementById("registerForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
-            var employeeId = document.getElementById("employeeid").value;
-            var fullName = document.getElementById("fullName").value;
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
+            const employeeId = document.getElementById("employeeid").value;
+            const fullName = document.getElementById("fullName").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
 
-            // Input validation
-            if (!fullName) {
-                alert("Full Name must not be empty!");
+            if (!fullName || !email || !password || !confirmPassword) {
+                alert("All fields must be filled!");
                 return;
             }
-            if (!email) {
-                alert("Email must not be empty!");
-                return;
-            }
-            if (!password || !confirmPassword || password !== confirmPassword) {
-                alert("Passwords must match and not be empty!");
-                return;
-            }
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
                 alert("Please enter a valid email address!");
                 return;
             }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
 
-            // Save user data to localStorage
-            var users = JSON.parse(localStorage.getItem("users")) || [];
-            users.push({ employeeid: employeeId, fullname: fullName, email: email });
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            if (users.find(user => user.email === email)) {
+                alert("User already exists!");
+                return;
+            }
+            users.push({ employeeid: employeeId, fullname: fullName, email: email, password: password });
             localStorage.setItem("users", JSON.stringify(users));
 
             alert('You are Registered Successfully!');
-
-            // Show the "Go to Login Page" button
-            document.getElementById("loginButton").style.display = "block";
-
-            // Optionally, redirect to the user list page
-            // window.location.href = "userlist.html";
-        });
-
-        // Add event listener to the "Go to Login Page" button
-        document.getElementById("loginButton").addEventListener("click", function () {
-            window.location.href = "login.html"; // Redirect to login page
+            window.location.href = "registerSuccessful.html";
         });
     </script>
 </body>
