@@ -13,9 +13,9 @@ This project is a Communication Application built using JavaScript and local sto
 - Responsive and user-friendly UI
 
 ## Usage
-Welcome Page: Navigate to the welcome page to start.
-Register: Create a new account using the Register page.
-Login: Access the application using the Login page.
-Manage Users: After logging in, you can view and manage users.
-Group Chat: Participate in group chats and send messages.
-Document Management: Upload and manage documents.
+- Welcome Page: Navigate to the welcome page to start.
+- Register: Create a new account using the Register page.
+- Login: Access the application using the Login page.
+- Manage Users: After logging in, you can view and manage users.
+- Group Chat: Participate in group chats and send messages.
+- Document Management: Upload and manage documents.
