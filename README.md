@@ -2,6 +2,10 @@
 
 This project is a Communication Application built using JavaScript and local storage. It allows users to register, log in, and manage their profiles, as well as chat and upload documents. 
 
+
+![Uploading image.png…]()
+
+
 ## Features
 
 - User Registration
@@ -11,6 +15,7 @@ This project is a Communication Application built using JavaScript and local sto
 - Document Uploads and Management
 - Validation for all user inputs
 - Responsive and user-friendly UI
+- 
 
 ## Usage
 - Welcome Page: Navigate to the welcome page to start.
