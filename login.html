@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+        }
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px; 
+            width: 100%; 
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form onsubmit="handleLogin(event)">
+            <table>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="email" name="email" id="email" class="large-input" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input type="password" name="password" id="password" class="large-input" required></td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                alert('Login successful!');
+                window.location.href = "loginSuccesfull.html"; 
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+    </script>
+</body>
+
+</html>
