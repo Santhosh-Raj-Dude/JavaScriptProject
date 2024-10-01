@@ -116,11 +116,17 @@
         }
 
         function deleteUser(index) {
-            const users = JSON.parse(localStorage.getItem("users"));
-            users.splice(index, 1);
-            localStorage.setItem("users", JSON.stringify(users));
-            displayUsers();
-        }
+    const users = JSON.parse(localStorage.getItem("users"));
+    const confirmDelete = confirm("Are you sure you want to delete this user?");
+    if (confirmDelete) {
+        users.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(users));
+        displayUsers();
+    } else {
+        return;
+    }
+}
+
         displayUsers();
     </script>
 </body>
