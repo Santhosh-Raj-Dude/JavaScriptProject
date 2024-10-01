@@ -1,9 +1,11 @@
-# Communication Application
+![Screenshot 2024-10-01 163401](https://github.com/user-attachments/assets/99a3e340-8fac-4cfb-bd54-d4592cad9ad4)![image](https://github.com/user-attachments/assets/720057d9-bc8a-423d-a69b-93165e97c55e)# Communication Application
 
 This project is a Communication Application built using JavaScript and local storage. It allows users to register, log in, and manage their profiles, as well as chat and upload documents. 
 
 
-![Uploading image.png…]()
+
+
+![Screenshot 2024-10-01 163401](https://github.com/user-attachments/assets/4eb59699-d92f-4b40-9b03-86c60827286b)
 
 
 ## Features
