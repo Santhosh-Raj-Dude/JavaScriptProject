@@ -19,3 +19,15 @@ This project is a Communication Application built using JavaScript and local sto
 - Manage Users: After logging in, you can view and manage users.
 - Group Chat: Participate in group chats and send messages.
 - Document Management: Upload and manage documents.
+- 
+## Validation
+- Login: Checks for mandatory email and password fields, and verifies if they exist in local storage.
+- Registration: Validates fields and checks for existing users.
+- User Management: Validates user input when editing user information.
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Local Storage
+  
