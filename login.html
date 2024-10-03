@@ -46,6 +46,22 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
+
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem; 
+            color: #343a40;
+        }
+
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -63,6 +79,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
+        <div class="register-link">
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
     </div>
 
     <script>
@@ -76,10 +95,13 @@
 
             if (user) {
                 alert('Login successful!');
-                localStorage.setItem("loggedInUser", user.fullname); // Store full name in localStorage
+                localStorage.setItem("loggedInUser", user.fullname); 
                 window.location.href = "loginSuccesfull.html"; // Redirect to chat page
             } else {
-                alert('Invalid credentials. Please try again.');
+                const register = confirm('Invalid credentials. Would you like to register?');
+                if (register) {
+                    window.location.href = "register.html"; // Redirect to registration page
+                }
             }
         }
     </script>
